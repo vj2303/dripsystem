@@ -1,0 +1,12 @@
+body{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.App button{
+  background-color: #00fbff;
+  padding: 10px 15px;
+  font-weight: bold;
+  border: none;
+}
