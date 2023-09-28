@@ -16,12 +16,19 @@ app.get("/", (req, res) => {
 
 app.post("/on_off", async(req, res) => {
     try {
-        const { on } = req.body
-    const ON_OFF = await on_off.create({
-        on
-    })
-    await ON_OFF.save()
+    const { on } = req.body
+    const updatedSwitch = await on_off.findByIdAndUpdate("6515514dc35e6801b03d4df5", {on : on}) //Add the id of value your document
+    await updatedSwitch.save()
     res.json({on})
+    } catch (error) {
+        res.json({message : error.message})
+    }
+})
+
+app.get("/get_on_off", async(req, res) => {
+    try {
+        const on = await on_off.findOne()
+        res.json({on})
     } catch (error) {
         res.json({message : error.message})
     }
